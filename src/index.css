@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sys-black: #0d0d0d;
+}
+
+@layer base {
+  body {
+    @apply m-0 min-h-svh antialiased;
+    @apply bg-sys-black;
+
+    color: white;
+  }
+}
