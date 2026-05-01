@@ -14,7 +14,9 @@ import {
 import { cn } from "@/lib/utils/utils";
 
 function inputErrorClass(touched: boolean | undefined, hasError: boolean) {
-  return Boolean(touched) && hasError ? "border-red-500 ring-1 ring-red-500" : "";
+  return Boolean(touched) && hasError
+    ? "border-red-500 ring-1 ring-red-500"
+    : "";
 }
 
 export function AddProductForm() {
@@ -40,6 +42,7 @@ export function AddProductForm() {
       category: "",
     },
     validationSchema: addProductValidationSchema,
+
     onSubmit: async (values, { resetForm }) => {
       await addMutation.mutateAsync({
         title: values.title.trim(),
@@ -54,6 +57,7 @@ export function AddProductForm() {
 
   const handleAddProductClick = async () => {
     const errors = await formik.validateForm();
+
     if (Object.keys(errors).length > 0) {
       formik.setTouched({
         title: true,
@@ -135,10 +139,7 @@ export function AddProductForm() {
           ) : null}
         </div>
 
-        <div
-          data-dashboard-field="description"
-          className="md:col-span-2"
-        >
+        <div data-dashboard-field="description" className="md:col-span-2">
           <label className="mb-1 block text-xs font-medium text-white/70">
             Description
           </label>
@@ -188,10 +189,7 @@ export function AddProductForm() {
           ) : null}
         </div>
 
-        <div
-          data-dashboard-field="category"
-          className="md:col-span-2"
-        >
+        <div data-dashboard-field="category" className="md:col-span-2">
           <label className="mb-1 block text-xs font-medium text-white/70">
             Category
           </label>

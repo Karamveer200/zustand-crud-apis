@@ -27,7 +27,7 @@ export function ProductCard({ productId }: ProductCardProps) {
         <img
           src={product.image}
           alt=""
-          className="h-full w-full object-contain"
+          className="h-[400px] w-full object-contain"
           loading="lazy"
         />
       </div>

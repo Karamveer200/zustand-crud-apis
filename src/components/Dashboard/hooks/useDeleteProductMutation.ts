@@ -15,6 +15,7 @@ export function useDeleteProductMutation() {
       await queryClient.cancelQueries({ queryKey: ["products"] });
 
       const state = useProductsStore.getState();
+
       const snapshot: ProductsSnapshot = {
         productsById: { ...state.productsById },
         orderedIds: [...state.orderedIds],
