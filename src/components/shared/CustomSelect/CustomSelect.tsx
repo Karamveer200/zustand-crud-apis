@@ -16,7 +16,7 @@ const selectColors = {
 export interface CustomSelectOption {
   label: string;
   value: string;
-  data?: any;
+  data?: unknown;
 }
 
 // Helper function to get background based on variant
@@ -55,7 +55,7 @@ export const customSelectTheme = (
     zIndex: 9999,
     position: "fixed",
   }),
-  menu: (provided: any, _state: any) => ({
+  menu: (provided: any) => ({
     ...provided,
     background: getBackgroundByVariant(variant),
     border: `1px solid ${selectColors.coolGray}`,
