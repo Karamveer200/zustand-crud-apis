@@ -7,6 +7,7 @@ type TodoListProps = {
 
 const TodoList = ({ listName }: TodoListProps) => {
   const todos = useTodoListStore((state) => state.todoLists[listName]);
+
   const addTodo = useTodoListStore((state) => state.addTodo);
   const updateTodoText = useTodoListStore((state) => state.updateTodoText);
   const moveTodo = useTodoListStore((state) => state.moveTodo);
