@@ -1,0 +1,40 @@
+---
+description: Frontend architecture, API hooks, forms, validation, and React performance rules
+globs:
+  - "src/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Frontend Architecture Rules
+
+## Data fetching and API calls
+
+Do not call `fetch`, `axios`, `api.get`, or direct HTTP clients inside React components, pages, or UI files.
+
+All server communication must go through custom hooks built with TanStack Query.
+
+Use this structure:
+
+- `src/hooks/api/` for API hooks
+- `useQuery` for read operations
+- `useMutation` for write operations
+- Components should only consume hook return values
+
+### Query rules
+
+Use `useQuery` for GET/read operations.
+
+Each query hook must have:
+
+- a stable exported query key
+- a typed query function
+- typed response data
+- a clear hook name
+
+Example names:
+
+```ts
+useGetBrokerActiveConnections();
+useCheckPhoneVerificationStatus();
+useGetCurrentUser();
+```
